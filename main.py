@@ -5,7 +5,7 @@ from langchain.prompts import HumanMessagePromptTemplate, ChatPromptTemplate, Me
 # from langchain_openai import ChatOpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
-from langchain.memory import ConversationBufferMemory, FileChatMessageHistory
+from langchain.memory import ConversationBufferMemory, FileChatMessageHistory, PostgresChatMessageHistory
 
 # Load env file having OPENAI_API_KEY variable
 load_dotenv()
@@ -16,8 +16,15 @@ chat = ChatOpenAI()
               It needs to be similar to the input variable name in the prompt template (ChatPromptTemplate).
 - returnMessages: true makes the memory return a list of chat messages instead of a string.
 """
+chat_history_db = PostgresChatMessageHistory(
+  session_id="1",
+  connection_string="postgresql://@localhost:5432/awesome-bot",
+  table_name="chat_history"
+)
 memory = ConversationBufferMemory(
-  chat_memory=FileChatMessageHistory("chat_history.json"),
+  chat_memory=chat_history_db,
+  # Enable this for a local file chat history
+  # chat_memory=FileChatMessageHistory("chat_history.json"),
   memory_key="messages", 
   return_messages=True
 )
