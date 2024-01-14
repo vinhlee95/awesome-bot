@@ -1,0 +1,38 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "who is roger federer?",
+      "additional_kwargs": {},
+      "type": "human",
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Roger Federer is a professional tennis player from Switzerland. He is widely regarded as one of the greatest tennis players of all time. Federer has won a record 20 Grand Slam singles titles, including eight Wimbledon titles, six Australian Open titles, five US Open titles, and one French Open title. He has also held the world No. 1 ranking in men's singles tennis for a record 310 weeks, including a record 237 consecutive weeks. Federer is known for his elegant playing style, versatility, and sportsmanship, making him a beloved figure in the world of tennis.",
+      "additional_kwargs": {},
+      "type": "ai",
+      "example": false
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "How many Grand Slam titles did he have?",
+      "additional_kwargs": {},
+      "type": "human",
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Roger Federer has won a record 20 Grand Slam titles.",
+      "additional_kwargs": {},
+      "type": "ai",
+      "example": false
+    }
+  }
+]

@@ -4,7 +4,7 @@ import os
 from langchain.prompts import HumanMessagePromptTemplate, ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
-from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferMemory, FileChatMessageHistory
 
 # Load env file having OPENAI_API_KEY variable
 load_dotenv()
@@ -15,7 +15,11 @@ chat = ChatOpenAI()
               It needs to be similar to the input variable name in the prompt template (ChatPromptTemplate).
 - returnMessages: true makes the memory return a list of chat messages instead of a string.
 """
-memory = ConversationBufferMemory(memory_key="messages", return_messages=True)
+memory = ConversationBufferMemory(
+  chat_memory=FileChatMessageHistory("chat_history.json"),
+  memory_key="messages", 
+  return_messages=True
+)
 
 prompt = ChatPromptTemplate(
   # This property specifies the input variables that will be passed to the prompt.
