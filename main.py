@@ -6,9 +6,8 @@ from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory
 
+# Load env file having OPENAI_API_KEY variable
 load_dotenv()
-open_api_key = os.getenv("OPENAI_API_KEY")
-
 chat = ChatOpenAI()
 
 """
